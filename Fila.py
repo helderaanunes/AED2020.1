@@ -2,22 +2,14 @@ class No:
     conteudo=""
     prox=None
 
-class LSE:
+class Fila:
     cabeca=None
     cauda= None
     tam=0 #tamanho da lista
     def tamanho(self):
         return self.tam
 
-    def inserirInicio(self,novo):
-        if (self.cabeca==None):
-            self.cabeca=novo
-            self.cauda=novo
-        else:
-            novo.prox=self.cabeca
-            self.cabeca=novo
-        self.tam+=1
-
+   
     def imprimir(self):
         noAux=self.cabeca
         while (noAux.prox!=None):
@@ -38,15 +30,7 @@ class LSE:
             self.cabeca=aux.prox
             aux=None
             self.tam-=1
-        
-
-    def removerFinal (self):
-        aux = self.cabeca
-        while (aux.prox.prox !=None):
-            aux=aux.prox
-
-   
-
+    
     def inserirFinal(self,novo):
         if(self.cabeca==None):
             self.cabeca=novo
@@ -56,21 +40,6 @@ class LSE:
             self.cauda=novo
         self.tam+=1
 
-    def inserir(self, novo, i):
-        if (i>self.tam or i<0):
-            print ("indice inválido")
-        elif (i== self.tam):
-            self.inserirFinal(novo)
-        elif(i==0):
-            self.inserirInicio(novo)
-        else :
-            aux = self.cabeca
-            j=0
-            while (j<i-1):
-                aux=aux.prox
-                j+=1
-            novo.prox= aux.prox
-            aux.prox=novo
 
 n1 = No()
 n2 = No()
@@ -82,7 +51,7 @@ n2.conteudo ="2"
 n3.conteudo ="3"
 n4.conteudo="4"
 n5.conteudo="5"
-lista = LSE()
+lista = Fila()
 lista.inserirInicio (n1)
 lista.inserirInicio (n3)
 lista.inserirFinal(n4)
@@ -94,3 +63,8 @@ lista.inserir(n5,0)
 print ("---------------------------")
 lista.imprimir()
 print ("O tamanho da lista é:",lista.tamanho())
+
+FIFO => First In First Out => Primeiro entrar Primeiro sair => Fila7
+
+LIFO => Last In First Out => Último entrar Primeiro sair => Pilha
+
